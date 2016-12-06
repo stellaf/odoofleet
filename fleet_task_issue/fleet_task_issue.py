@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Addon by CLEARCORP S.A. <http://clearcorp.co.cr> and AURIUM TECHNOLOGIES <http://auriumtechnologies.com>
-#
+#    added by stella.fredo@gmail.com
+#    based on Fleet analytic account by CLEARCORP S.A. <http://clearcorp.co.cr> and AURIUM TECHNOLOGIES <http://auriumtechnologies.com>
 #    
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
