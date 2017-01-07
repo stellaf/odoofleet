@@ -38,7 +38,7 @@ when you create one vehicle
     """,
     "category": 'Managing vehicles tasks and issues',
     "sequence": 3,
-    "website" : "http://www.cevt.se",
+    "website" : "https://github.com/stellaf/odoofleet.git#8.0",
     "images" : [],
     "depends" : [
                  'fleet',
