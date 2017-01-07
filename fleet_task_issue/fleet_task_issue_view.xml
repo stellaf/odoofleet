@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id = "fleet_vehicle_form_view">
+            <field name="name">fleet.vehicle.form</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_form"/>
+            <field name="arch" type = "xml">
+                <xpath expr="//form/sheet/group[2]" position="after">
+                    <group string="Analytic accounts">
+                        <field name="analytic_account_id" readonly="0"/>
+                    </group>
+                </xpath>
+                <xpath expr="//button[@name='return_action_to_open']" position="before">
+                    <!-- button name="%(project.act_project_project_2_project_task_all)d" -->
+                    <!--        type="action"    -->
+                    <button name="action_view_alltasks"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-tasks"
+                            help="Show all tasks for this vehicle" >
+                            <field name="task_count" widget="statinfo" string="Tasks"/>
+                    </button>
+					
+                    <button name="action_view_allissues"
+                            type="object"
+					        class="oe_stat_button"
+                            icon="fa-bug"
+                            help="Show all issues for this vehicle" >
+                            <field name="issue_count" widget="statinfo" string="Issues"/>
+                    </button>
+                </xpath> 
+            </field>
+        </record>
+
+<record model="ir.ui.view" id = "fleet_vehicle_log_services_form_view">
+            <field name="name">fleet.vehicle.log.services.form</field>
+            <field name="model">fleet.vehicle.log.services</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_form"/>
+            <field name="arch" type = "xml">
+                <xpath expr="/form/sheet/group[2]/group/field[4]" position="after">
+                            <field name="invoice_id" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
