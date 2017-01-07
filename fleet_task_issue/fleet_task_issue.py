@@ -57,7 +57,7 @@ class FleetVehicle(models.Model):
     
     @api.multi
     def _vehicle_name_get(self,record):
-        res=record.model_id.brand_id.name + '/' + record.model_id.modelname + ' / ' + record.license_plate
+        res=record.model_id.brand_id.name + '/' + record.model_id.name + ' / ' + record.license_plate
         return res
 
     analytic_account_id = fields.Many2one('account.analytic.account',string='Analytic Account')
