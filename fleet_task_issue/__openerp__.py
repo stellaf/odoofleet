@@ -23,7 +23,7 @@
 
 {
     "name" : 'Fleet Task Issue',
-    "version" : '9.0',
+    "version" : '10.0',
     "author" : 'stella.fredo@gmail.com',
     'complexity': 'normal',
     "description":  """
@@ -34,17 +34,20 @@ when you create one vehicle
 -------------
 		* one project with the same vehicle name will be created under the project menu.
 		* thus you can schedule the task and issues for this vehicle.
-		* smart buttons to this vehicles task and issues will be added to each vehicle's form.
+		* smart buttons to this vehicles task and issues are added to each vehicle's form.
+		* menu for task and issues are added to fleet_vehicle menu to view all vehicles task and issue.
+		* In order to separate the vehicle type project from normal project, you may use 
+		* two apps, "project category", "task type color".
     """,
     "category": 'Managing vehicles tasks and issues',
     "sequence": 3,
-    "website" : "https://github.com/stellaf/odoofleet#9.0",
+    "website" : "https://se.linkedin.com/in/stella-fredö-94401014",
     "images" : [],
     "depends" : [
                  'fleet',
-				'account',
-				'analytic',
-				'project',
+		'account',
+		'analytic',
+		'project',
                  'project_issue'
                  ],
     "data" : ['fleet_task_issue_view.xml'],
