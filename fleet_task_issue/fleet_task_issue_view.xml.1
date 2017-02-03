@@ -26,6 +26,22 @@
                             help="Show all issues for this vehicle" >
                             <field name="issue_count" widget="statinfo" string="Issues"/>
                     </button>
+                    <button name="action_view_SWHWlogbooktasks"
+                            class="oe_stat_button"
+                            type="object"
+                            icon="fa-tasks"
+                            groups="fleet.group_fleet_user"
+                            help="Show software hardware logbook for this vehicle" >
+                            <field name="swhw_task_count" widget="statinfo" string="SW HW logbook"/>
+                    </button>
+                    <button name="action_view_Workshoptasks"
+                            class="oe_stat_button"
+                            type="object"
+                            icon="fa-tasks"
+                            groups="fleet.group_fleet_user"
+                            help="Show workshop task for this vehicle" >
+                            <field name="wkshop_task_count" widget="statinfo" string="Workshop tasks"/>
+                    </button>
                 </xpath> 
             </field>
         </record>

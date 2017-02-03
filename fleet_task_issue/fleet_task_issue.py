@@ -19,12 +19,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, _
+from odoo import models, fields, api, _
 
 class FleetVehicle(models.Model):
 
     _inherit = 'fleet.vehicle'
-   
 
     @api.model
     def create(self, vals):
@@ -44,6 +43,15 @@ class FleetVehicle(models.Model):
         issue_obj = self.env['project.project']
         self.issue_count=len(issue_obj.search([('analytic_account_id', '=', self.analytic_account_id.id)]).issue_ids)
 
+    @api.multi
+    def _count_swhwlogbook_task(self):
+        domain=[('project_id.analytic_account_id', '=', self.analytic_account_id.id), ('task_type_id.name','ilike','SWHW')]
+        self.swhw_task_count=self.env['project.task'].search_count(domain)
+
+    @api.multi
+    def _count_wkshop_task(self):
+        domain=[('project_id.analytic_account_id', '=', self.analytic_account_id.id), ('task_type_id.name','ilike','Workshop')]
+        self.wkshop_task_count=self.env['project.task'].search_count(domain)
         
     @api.multi
     def write(self, vals):
@@ -62,26 +70,30 @@ class FleetVehicle(models.Model):
 
     @api.multi
     def action_view_alltasks(self):
-        self.ensure_one()
         action = self.env.ref('project.act_project_project_2_project_task_all')
-        domain=[('project_id.analytic_account_id', '=', self.analytic_account_id.id)]
+        active_id = self.env['project.project'].search([('analytic_account_id', '=', self.analytic_account_id.id)]).id
+        context = {'group_by': 'stage_id', 'search_default_project_id': [active_id], 'default_project_id': active_id, }
         return {
+            'key2':'tree_but_open',
             'name': action.name,
             'res_model': 'project.task',
             'help': action.help,
             'type': action.type,
             'view_type': action.view_type,
             'view_mode': action.view_mode,
+            'res_id': active_id,
             'views': action.views,
             'target': action.target,
-            'domain': domain,
+            'context':context,
+            'nodestroy': True,
+            'flags': {'form': {'action_buttons': True}}
         }
 	
     @api.multi
     def action_view_allissues(self):
-        self.ensure_one()
         action = self.env.ref('project_issue.act_project_project_2_project_issue_all')
-        domain=[('project_id.analytic_account_id', '=', self.analytic_account_id.id)]
+        active_id = self.env['project.project'].search([('analytic_account_id', '=', self.analytic_account_id.id)]).id
+        context = {'group_by': 'stage_id', 'search_default_project_id': [active_id], 'default_project_id': active_id,}
         return {
             'name': action.name,
             'res_model': 'project.issue',
@@ -91,13 +103,62 @@ class FleetVehicle(models.Model):
             'view_mode': action.view_mode,
             'views': action.views,
             'target': action.target,
-            'domain': domain,
+            'res_id': active_id,
+            'context':context,
+            'nodestroy': True,
+            'flags': {'form': {'action_buttons': True}}
         }	
+# this part of code, you shall define the project task type to "SWHW" and "Workshop", using the apps in the odoo store, named "task type color"
+#    @api.multi
+#    def action_view_SWHWlogbooktasks(self):
+#        self.ensure_one()
+#        action = self.env.ref('project.act_project_project_2_project_task_all')
+#        active_id = self.env['project.project'].search([('analytic_account_id', '=', self.analytic_account_id.id)]).id
+#        context = {'group_by': 'stage_id', 'search_default_project_id': [active_id], 'default_project_id': active_id,  'task_type_id.name':'SWHW',}
+#        return {
+#            'key2':'tree_but_open',
+#            'name': action.name,
+#            'res_model': 'project.task',
+#            'help': action.help,
+#            'type': action.type,
+#            'view_type': action.view_type,
+#            'view_mode': action.view_mode,
+#            'res_id': active_id,
+#            'views': action.views,
+#            'target': action.target,
+#            'context':context,
+#            'nodestroy': True,
+#            'flags': {'form': {'action_buttons': True}}
+#        }
+#
+#    @api.multi
+#    def action_view_Workshoptasks(self):
+#        self.ensure_one()
+#        action = self.env.ref('project.act_project_project_2_project_task_all')
+#        active_id = self.env['project.project'].search([('analytic_account_id', '=', self.analytic_account_id.id)]).id
+#        context = {'group_by': 'stage_id', 'search_default_project_id': [active_id], 'default_project_id': active_id,  'task_type_id.name':'Workshop',}
+#        return {
+#            'key2':'tree_but_open',
+#            'name': action.name,
+#            'res_model': 'project.task',
+#            'help': action.help,
+#            'type': action.type,
+#            'view_type': action.view_type,
+#            'view_mode': action.view_mode,
+#            'res_id': active_id,
+#            'views': action.views,
+#            'target': action.target,
+#            'context':context,
+#            'nodestroy': True,
+#            'flags': {'form': {'action_buttons': True}}
+#        }
 
     analytic_account_id = fields.Many2one('account.analytic.account',string='Analytic Account')
     task_count = fields.Integer(compute=_count_vehicle_task, string="Vehicle Tasks" , multi=True)
     issue_count = fields.Integer(compute=_count_vehicle_issue, string="Vehicle Issues" , multi=True)
-    
+#    swhw_task_count = fields.Integer(compute=_count_swhwlogbook_task, string="SWHWlogbook Tasks" , multi=True)
+#    wkshop_task_count = fields.Integer(compute=_count_wkshop_task, string="workshop Tasks" , multi=True)
+ 
     
 class  fleet_vehicle_log_services(models.Model):
 
