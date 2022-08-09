@@ -33,27 +33,22 @@ class FleetVehicle(models.Model):
         fleet_id.write({'analytic_account_id':account_id.id,'use_tasks':True,'use_issues':True})
         return fleet_id
      
-    @api.multi
     def _count_vehicle_task(self):
         project_obj = self.env['project.project']
         self.task_count=len(project_obj.search([('analytic_account_id', '=', self.analytic_account_id.id)]).task_ids)
 
-    @api.multi
     def _count_vehicle_issue(self):
         issue_obj = self.env['project.project']
         self.issue_count=len(issue_obj.search([('analytic_account_id', '=', self.analytic_account_id.id)]).issue_ids)
 
-    @api.multi
     def _count_swhwlogbook_task(self):
         domain=[('project_id.analytic_account_id', '=', self.analytic_account_id.id), ('task_type_id.name','ilike','SWHW')]
         self.swhw_task_count=self.env['project.task'].search_count(domain)
 
-    @api.multi
     def _count_wkshop_task(self):
         domain=[('project_id.analytic_account_id', '=', self.analytic_account_id.id), ('task_type_id.name','ilike','Workshop')]
         self.wkshop_task_count=self.env['project.task'].search_count(domain)
         
-    @api.multi
     def write(self, vals):
         acount_obj=self.env['account.analytic.account']
         res = super(FleetVehicle, self).write(vals)
@@ -63,12 +58,10 @@ class FleetVehicle(models.Model):
         self.analytic_account_id.write({'name':self.name,'use_tasks':True,'use_issues':True})
         return res
     
-    @api.multi
     def _vehicle_name_get(self,record):
         res = record.model_id.brand_id.name + '/' + record.model_id.name + '/' + record.license_plate
         return res
 
-    @api.multi
     def action_view_alltasks(self):
         action = self.env.ref('project.act_project_project_2_project_task_all')
         active_id = self.env['project.project'].search([('analytic_account_id', '=', self.analytic_account_id.id)]).id
@@ -89,7 +82,6 @@ class FleetVehicle(models.Model):
             'flags': {'form': {'action_buttons': True}}
         }
 	
-    @api.multi
     def action_view_allissues(self):
         action = self.env.ref('project_issue.act_project_project_2_project_issue_all')
         active_id = self.env['project.project'].search([('analytic_account_id', '=', self.analytic_account_id.id)]).id

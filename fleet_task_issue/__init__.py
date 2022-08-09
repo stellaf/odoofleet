@@ -19,4 +19,4 @@
 #
 ##############################################################################
 
-import fleet_task_issue
+from . import fleet_task_issue
