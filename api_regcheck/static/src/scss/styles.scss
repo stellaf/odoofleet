@@ -1,0 +1,105 @@
+
+ .card {
+     max-width: 500px;
+     margin: auto;
+     margin-top: 50px;
+     border-color: #039;
+     border-radius: 11px;
+     box-shadow: 2px 2px 4px #000;
+   }
+   
+  .card-title{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 26px;
+
+  }
+
+  .input-group-text{
+    background-color: white;
+  }
+  
+  .card-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #plate_number::placeholder {
+    color: #000;
+    opacity: 0.2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+    font-size: 19px;
+  }
+  .btn-fill-primary, .btn-primary{
+    color: #FFFFFF;
+    background-color:#039;;
+    border-color: #fc0;
+    box-shadow: 2px 2px 4px #000;
+
+  }
+  .input-group-prepend{
+    margin-right: -1px;
+    border-width: thick;
+    border-color: black;
+    border: 5px solid;
+    border-radius: 11px;
+    box-shadow: 2px 2px 4px #000;
+    margin: 0px 30px 0px 30px;
+  }
+
+.form-group{
+  text-align:center;
+  font-size: 20px;
+}
+  
+.form-control{
+  text-align:center;
+} 
+
+
+.about_modul{
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+}
+  
+.form-control2{
+  border-radius: 11px;
+  box-shadow: 2px 2px 4px #000;
+  width: 248px;
+  height: 37px;
+  margin: -35px 20px 20px 104px;
+}
+
+.navbar .navbar-collapse {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .card {
+//   font-size: 24px;
+//   width: 800px;
+//   height: 800px;
+//   margin: auto;
+//   margin-top: 50px;
+//   background-image: url('https://png.pngtree.com/png-clipart/20220726/original/pngtree-cool-sport-car-back-look-png-image_8393226.png');
+//   background-size: 800px 0px 800px 0px;
+//   background-position: center top; /* justera positionen av bakgrundsbilden */
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+// }
