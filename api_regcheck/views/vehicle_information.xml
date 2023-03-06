@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_vehicle_information_tree">
+      <field name="name">vehicle.information.tree</field>
+      <field name="model">vehicle.information</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="registration_number" string="Registration Number"/>
+          <field name="make" string="Car brand"/>
+          <field name="model" string="Model"/>
+          <field name="color" string="Color"/>
+          <field name="year" string="Year"/>
+          <!-- <field name="EngineSize" string="Horsepower"/> -->
+          <field name="BodyStyle" string="car model "/>
+          <field name="NumberOfSeats" string="Seats"/>
+          <field name="RegistrationDate" string="RegistrationDate"/>
+          <field name="FuelType" string="FuelType"/>
+          <field name="IndicativeValue" string="varde"/>
+
+        </tree>
+      </field>
+    </record>
+
+
+      <record id="action_vehicle_information_tree" model="ir.actions.act_window">
+        <field name="name">Vehicle Infromation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vehicle.information</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        action="action_vehicle_information_tree"
+        id="menu_vehicle_information_tree"
+        parent="website.menu_website_configuration"
+    />
+  </data>
+</odoo>

@@ -1,0 +1,232 @@
+<odoo>
+    <!-- Assets -->
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/api_regcheck/static/src/scss/styles.scss" t-ignore="true"/>
+            <script type="text/javascript" src="/api_regcheck/static/src/js/get_car_model.js"/>
+        </xpath>
+    </template> 
+    
+        
+    <template id="vehicle_search" name="Website Booking: Search Vehicle">
+        <t t-call="website.layout">
+            <div class="vehicle-search-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #003399;">Vehicle Search</h5>
+                        <div class="form-group">
+                        <label for="plate_number">Vehicle Plate Number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                   <img src="api_regcheck/static/src/img/Eu_s.svg.png" alt="Flagga" class="input-group-text" style="width: 32px; height: 70px; padding: 0px; object-fit: contain; border: none; outline: none;" />
+                                <input type="text" class="form-control" id="plate_number" placeholder="Enter Plate Number" style="text-align: center; text-transform: uppercase; font-size: 66px; font-family: Arial; letter-spacing: 3px; height: 70px; width: 100%; padding-left: 0;"/>
+                                </div>
+                            </div>    
+                        </div>  
+                        <div class="form-group">
+                        <label for="model_field">Vehicle Model</label>
+                        </div>
+                         <div class="form_controll1">
+                            <input type="text" class="form-control2" id="model_field"/>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" id="get_car_model">
+                                <button type="button" class="btn btn-primary">GET PLATE Number</button>
+                            </a>
+                        </div>
+                        <div class="about_modul">                                                 
+                        <p>This application is a custom module built on Odoo 14 that uses an API from regcheck to retrieve information about cars. When a user interacts with this application, they can search for a car by entering its registration number.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <odoo>
+    Assets
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/api_regcheck/static/src/scss/styles.scss" t-ignore="true"/>
+            <script type="text/javascript" src="/api_regcheck/static/src/js/get_car_model.js"/>
+        </xpath>
+    </template> 
+    
+        
+    <template id="vehicle_search" name="Website Booking: Search Vehicle">
+        <t t-call="website.layout">
+            <div class="vehicle-search-container">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">Vehicle Search</h5>
+                        <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <img src="static/src/img/Eu_s.svg.png" alt="Flagga" class="input-group-text" style="width: 40px; height: 40px; object-fit: contain;">
+                                <input type="text" class="form-control" id="plate_number" placeholder="Enter Plate Number" style="padding-left: 0;">
+                            </div>    
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="model_field">Vehicle Model</label>
+                            <input type="text" class="form-control" id="model_field"/>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" id="get_car_model">
+                                <button type="button" class="btn btn-primary">Search</button>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo> -->
+
+
+    <!-- </template> 
+
+    <template id="vehicle_search" name="Website Booking: Search Vehicle">
+        <t t-call="website.layout">
+        <div class="vehicle-search-container">
+            <div id="wrap" class="o_vehicle_search">
+                <div class="oe_structure"/>
+                    <div class="oe_structure container mb128">
+                        <div class="form-group row col-xl-8 form-field">
+                            <label for="plate_number" class="col-md-4 col-form-label">Vehicle Plate Number</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control o_website_form_input" name="plate_number" placeholder="Enter Plate Number" required="1" id="plate_number_field"/>
+                            </div>
+                            
+                            
+                            
+                            <div class="col-lg-5" style="text-align: end;margin: auto;">
+                                <a href="#" id="get_car_model">
+                                    <i class="fa fa-fw o_button_icon fa-arrow-right"/>  
+                                </a>
+                            </div>
+
+                            <div class="form-group row col-xl-8 form-field">
+                                <label for="model_field" class="col-md-4 col-form-label">Vehicle Model</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="model_field"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="oe_structure"/>
+            </div>
+        </div>       
+        </t>
+        
+
+    </template>    -->
+
+<!-- 
+
+<odoo>
+    Assets
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/api_regcheck/static/src/scss/styles.scss" t-ignore="true"/>
+            <script type="text/javascript" src="/api_regcheck/static/src/js/get_car_model.js"/>
+        </xpath>
+    </template> 
+
+<template id="vehicle_search" name="Website Booking: Search Vehicle">
+    <t t-call="website.layout">
+        <div class="vehicle-search-container">
+            <div id="wrap" class="o_vehicle_search">
+                <div class="oe_structure"/>
+                    <div class="oe_structure container mb128">
+                        <div class="card form-group row col-xl-8 form-field">
+                            <div class="card-body">
+                                  <label for="plate_number" class="col-md-4 col-form-label">Vehicle Plate Number</label>
+                                        <div class="col-md-8">
+                                            <img src="/static/src/img/plate_number.png" alt="Vehicle Plate Number" class="license-plate-image"/>
+                                        </div>
+                                    <input type="text" class="form-control o_website_form_input" name="plate_number" placeholder="Enter Plate Number" required="1" id="plate_number_field"/>
+                                <div class="col-lg-5" style="text-align: end;margin: auto;">
+                                    <a href="#" id="get_car_model">
+                                        <i class="fa fa-fw o_button_icon fa-arrow-right"/>  
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card form-group row col-xl-8 form-field">
+                            <div class="card-body">
+                                <label for="model_field" class="col-md-4 col-form-label">Vehicle Model</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="model_field"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="oe_structure"/>
+            </div>
+        </div>      
+    </t>
+</template> 
+
+</odoo> -->
+
+
