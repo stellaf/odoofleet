@@ -21,5 +21,19 @@
         </tree>
       </field>
     </record>
+
+
+      <record id="action_vehicle_information_tree" model="ir.actions.act_window">
+        <field name="name">Vehicle Infromation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vehicle.information</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        action="action_vehicle_information_tree"
+        id="menu_vehicle_information_tree"
+        parent="website.menu_website_configuration"
+    />
   </data>
 </odoo>
