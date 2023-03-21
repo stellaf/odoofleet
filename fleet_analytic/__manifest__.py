@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Analytic Accounting/Fleet bridge',
-    'category': 'Accounting/Accounting',
-    'summary': 'Manage analytic accounting with fleets',
+    'name': 'Fleet: Analytic',
+    'category': 'Accounting',
+    'summary': 'Fleet bridge. Manage analytic accounting with fleets',
     'description': "",
     'version': '1.0',
     'depends': ['fleet', 'account'],
