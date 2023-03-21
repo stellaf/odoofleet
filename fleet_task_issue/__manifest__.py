@@ -47,9 +47,9 @@ when you create one vehicle
                  'project',
                  'project_issue',
                  'fleet',
-		'account',
-		'analytic',
-		'project',
+		         'account',
+		         'analytic',
+		         'project',
                  'project_issue'
                  ],
     "data" : ['fleet_task_issue_view.xml'],

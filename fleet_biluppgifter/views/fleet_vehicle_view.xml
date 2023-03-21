@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_fleet_vehicle_form_view">
+            <field name="name">fleet.vehicle.form</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div[hasclass('oe_title')]" position="replace">
+                    <div class="oe_title">
+                        <label for="model_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="model_id" placeholder="e.g. Model S"/>
+                        </h1>
+                        <label for="license_plate" class="oe_edit_only"/>
+                        <div style="display: flex;">
+                            <h2>
+                                <field name="license_plate" class="oe_inline" placeholder="e.g. PAE 326"/>
+                            </h2>
+                             <button name="fetch_vehicle_details" type="object" class="btn btn-primary" style="height: 35px;" string="fetch"/>
+                        </div>
+                        <label for="tag_ids" class="oe_edit_only"/>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                    </div>
+                </xpath>
+
+                <field name="model_year" position="after">
+                    <field name="indicative_value"/>
+                    <field name="body_style"/>
+                    <field name="registration_date"/>
+                </field>  
+
+                 <field name="acquisition_date" position="after">
+                    <field name="last_inspection_date"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
