@@ -39,7 +39,7 @@
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-',
-    'depends': ['base', 'website', 'fleet'],
+    'depends': ['base', 'fleet'],
     'data': [
         'views/fleet_vehicle_view.xml'       
     ],
