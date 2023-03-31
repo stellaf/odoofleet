@@ -15,7 +15,6 @@
         #  'static/src/img/plate_number.png',
          #'views/snippets/snippets.xml',
         
-       
     ],
     'installable': True,
     'application': True,
